@@ -538,7 +538,7 @@ namespace LevelComponents
         QString levelName = QString(LevelName);
         if(levelName.length() != 26)
         {
-            singleton->GetOutputWidgetPtr()->PrintString(QString("Internal error: English Level name has invalid length (") + levelName.length() + "): \"" + levelName + "\"");
+            singleton->GetOutputWidgetPtr()->PrintString(QString("Internal error: English Level name has invalid length (") + QString::number(levelName.length()) + "): \"" + levelName + "\"");
             levelName.truncate(26);
         }
         ConvertLevelNameToData(levelName, levelNameChunk.data);
@@ -554,7 +554,7 @@ namespace LevelComponents
         QString levelNameJ = QString(LevelNameJ);
         if(levelNameJ.length() != 26)
         {
-            singleton->GetOutputWidgetPtr()->PrintString(QString("Internal error: Japanese Level name has invalid length (") + levelNameJ.length() + "): \"" + levelName + "\"");
+            singleton->GetOutputWidgetPtr()->PrintString(QString("Internal error: Japanese Level name has invalid length (") + QString::number(levelNameJ.length()) + "): \"" + levelName + "\"");
             levelNameJ.truncate(26);
         }
         ConvertLevelNameToData(levelNameJ, levelNameJChunk.data);

@@ -4,14 +4,14 @@
 #
 #-------------------------------------------------
 
-QT += core gui
+QT += core gui core5compat
 QT += qml        # Need this to compile QJSEngine
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = WL4Editor
 TEMPLATE = app
 
-include(./ThirdParty/phantomstyle/src/phantom/phantom.pri)
+# include(./ThirdParty/phantomstyle/src/phantom/phantom.pri)
 
 RC_ICONS = images/icon.ico
 

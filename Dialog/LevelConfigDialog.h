@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QLineEdit>
 #include <QString>
+#include <QRegularExpressionValidator>
 #include <QValidator> // include <QRegExp> and <QRegExpValidator>
 #include <string>
 
