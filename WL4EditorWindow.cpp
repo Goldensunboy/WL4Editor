@@ -39,68 +39,67 @@ WL4EditorWindow::WL4EditorWindow(QWidget *parent) : QMainWindow(parent), ui(new 
     // for now we cannot use it
     return;
 
-//    // Render Themes
-//    int themeId = SettingsUtils::GetKey(static_cast<SettingsUtils::IniKeys>(6)).toInt();
+    // Render Themes
+    int themeId = SettingsUtils::GetKey(static_cast<SettingsUtils::IniKeys>(6)).toInt();
 //    QApplication::setStyle(new PhantomStyle);
 //    QApplication::setPalette(namedColorSchemePalette(static_cast<ThemeColorType>(themeId)));
 
-//    ui->setupUi(this);
-//    singleton = this;
+    ui->setupUi(this);
+    singleton = this;
 
-//    // MainWindow UI Initialization
-//    ui->graphicsView->scale(graphicViewScalerate, graphicViewScalerate);
-//    statusBarLabel = new QLabel(tr("Open a ROM file"));
-//    statusBarLabel_MousePosition = new QLabel();
-//    statusBarLabel_rectselectMode = new QLabel(tr("Rect Select: Off"));
-//    statusBarLabel_Scalerate = new QLabel(tr("scale rate: ") + QString::number(graphicViewScalerate) + "00%");
-//    statusBarLabel->setMargin(3);
-//    statusBarLabel_MousePosition->setMargin(3);
-//    statusBarLabel_rectselectMode->setMargin(3);
-//    statusBarLabel_Scalerate->setMargin(3);
-//    ui->statusBar->addWidget(statusBarLabel);
-//    ui->statusBar->addWidget(statusBarLabel_rectselectMode);
-//    ui->statusBar->addWidget(statusBarLabel_Scalerate);
-//    ui->statusBar->addWidget(statusBarLabel_MousePosition);
-//    switch (themeId) {
-//    case 0:
-//    { ui->actionLight->setChecked(true); break; }
-//    case 1:
-//    { ui->actionDark->setChecked(true); break; }
-//    }
+    // MainWindow UI Initialization
+    ui->graphicsView->scale(graphicViewScalerate, graphicViewScalerate);
+    statusBarLabel = new QLabel(tr("Open a ROM file"));
+    statusBarLabel_MousePosition = new QLabel();
+    statusBarLabel_rectselectMode = new QLabel(tr("Rect Select: Off"));
+    statusBarLabel_Scalerate = new QLabel(tr("scale rate: ") + QString::number(graphicViewScalerate) + "00%");
+    statusBarLabel->setMargin(3);
+    statusBarLabel_MousePosition->setMargin(3);
+    statusBarLabel_rectselectMode->setMargin(3);
+    statusBarLabel_Scalerate->setMargin(3);
+    ui->statusBar->addWidget(statusBarLabel);
+    ui->statusBar->addWidget(statusBarLabel_rectselectMode);
+    ui->statusBar->addWidget(statusBarLabel_Scalerate);
+    ui->statusBar->addWidget(statusBarLabel_MousePosition);
+    switch (themeId) {
+    case 0:
+    { ui->actionLight->setChecked(true); break; }
+    case 1:
+    { ui->actionDark->setChecked(true); break; }
+    }
 
-//    // Create DockWidgets
-//    EditModeWidget = new EditModeDockWidget();
-//    Tile16SelecterWidget = new Tile16DockWidget();
-//    EntitySetWidget = new EntitySetDockWidget();
-//    CameraControlWidget = new CameraControlDockWidget();
-//    OutputWidget = new OutputDockWidget();
+    // Create DockWidgets
+    EditModeWidget = new EditModeDockWidget();
+    Tile16SelecterWidget = new Tile16DockWidget();
+    EntitySetWidget = new EntitySetDockWidget();
+    CameraControlWidget = new CameraControlDockWidget();
+    OutputWidget = new OutputDockWidget();
 
-//    // Add Recent ROM QAction according to the INI file
-//    QMenu *filemenu = ui->menuRecent_ROM;
-//    for(uint i = 0; i < sizeof(RecentROMs) / sizeof(RecentROMs[0]); i++)
-//    {
-//        recentROMnum = i;
-//        QString filepath = SettingsUtils::GetKey(static_cast<SettingsUtils::IniKeys>(i + 1));
-//        if(!filepath.length())
-//        {
-//            if(i == 0)
-//            {
-//                RecentROMs[0] = new QAction("-/-", this);
-//                filemenu->addAction(RecentROMs[0]);
-//                connect(RecentROMs[0], SIGNAL(triggered()), this, SLOT(openRecentROM()));
-//            }
-//            break;
-//        }
-//        RecentROMs[i] = new QAction(filepath, this);
-//        filemenu->addAction(RecentROMs[i]);
-//        connect(RecentROMs[i], SIGNAL(triggered()), this, SLOT(openRecentROM()));
-//    }
+    // Add Recent ROM QAction according to the INI file
+    QMenu *filemenu = ui->menuRecent_ROM;
+    for(uint i = 0; i < sizeof(RecentROMs) / sizeof(RecentROMs[0]); i++)
+    {
+        recentROMnum = i;
+        QString filepath = SettingsUtils::GetKey(static_cast<SettingsUtils::IniKeys>(i + 1));
+        if(!filepath.length())
+        {
+            if(i == 0)
+            {
+                RecentROMs[0] = new QAction("-/-", this);
+                filemenu->addAction(RecentROMs[0]);
+                connect(RecentROMs[0], SIGNAL(triggered()), this, SLOT(openRecentROM()));
+            }
+            break;
+        }
+        RecentROMs[i] = new QAction(filepath, this);
+        filemenu->addAction(RecentROMs[i]);
+        connect(RecentROMs[i], SIGNAL(triggered()), this, SLOT(openRecentROM()));
+    }
 
-//    // Memory Initialization
-//    memset(ROMUtils::singletonTilesets, 0, sizeof(ROMUtils::singletonTilesets) / sizeof(ROMUtils::singletonTilesets[0]));
-//    memset(ROMUtils::entitiessets, 0, sizeof(ROMUtils::entitiessets) / sizeof(ROMUtils::entitiessets[0]));
-//    memset(ROMUtils::entities, 0, sizeof(ROMUtils::entities) / sizeof(ROMUtils::entities[0]));
-
+    // Memory Initialization
+    memset(ROMUtils::singletonTilesets, 0, sizeof(ROMUtils::singletonTilesets) / sizeof(ROMUtils::singletonTilesets[0]));
+    memset(ROMUtils::entitiessets, 0, sizeof(ROMUtils::entitiessets) / sizeof(ROMUtils::entitiessets[0]));
+    memset(ROMUtils::entities, 0, sizeof(ROMUtils::entities) / sizeof(ROMUtils::entities[0]));
 
 }
 
