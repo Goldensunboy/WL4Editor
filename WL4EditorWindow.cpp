@@ -36,9 +36,6 @@ QString dialogInitialPath = QString("");
 /// </param>
 WL4EditorWindow::WL4EditorWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::WL4EditorWindow)
 {
-    // for now we cannot use it
-    return;
-
     // Render Themes
     int themeId = SettingsUtils::GetKey(static_cast<SettingsUtils::IniKeys>(6)).toInt();
 //    QApplication::setStyle(new PhantomStyle);
